@@ -4,15 +4,15 @@ RUN \
     && apt-get install -qy apache2 \
     && apt-get clean
 
+RUN adduser autoprime
 RUN groupadd www
-RUN adduser ubuntu www
+RUN adduser autoprime www
 RUN chgrp www /var/www
 RUN chmod g+w /var/www
 RUN chmod g+s /var/www
-# This is not Ubuntu ;)
-# # RUN adduser ubuntu www-data
-# # RUN adduser www-data www
-# RUN mkdir /var/www/autoprime
+RUN adduser autoprime www-data
+RUN adduser www-data www
+RUN mkdir /var/www/autoprime
 
 RUN a2enmod cgid
 RUN systemctl restart apache2
