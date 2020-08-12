@@ -9,9 +9,10 @@ RUN adduser ubuntu www
 RUN chgrp www /var/www
 RUN chmod g+w /var/www
 RUN chmod g+s /var/www
-RUN adduser ubuntu www-data
-RUN adduser www-data www 
-RUN mkdir /var/www/autoprime
+# This is not Ubuntu ;)
+# # RUN adduser ubuntu www-data
+# # RUN adduser www-data www
+# RUN mkdir /var/www/autoprime
 
 RUN a2enmod cgid
 RUN systemctl restart apache2
